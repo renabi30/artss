@@ -1,19 +1,19 @@
 
 // Pins used to control motors (TB6612FNG)
-const uint16_t PWMA = 5;         // Motor A PWM control
+//const uint16_t PWMA = 5;         // Motor A PWM control
 const uint16_t AIN2 = 6;         // Motor A input 2
 const uint16_t AIN1 = 9;         // Motor A input 1
-const uint16_t STBY = 13;        // Standby
+//const uint16_t STBY = 13;        // Standby
 
 // Motor control pins for encoder feedback motor
 const int Input1 = 2;
 const int Input2 = 3;
-const int motorSpeedPin = 11;  // PWM pin for motor speed control
+//const int motorSpeedPin = 11;  // PWM pin for motor speed control
 
 // Constants
-const uint16_t ANALOG_WRITE_BITS = 8;
-const uint16_t MAX_PWM = pow(2, ANALOG_WRITE_BITS);
-const uint16_t MIN_PWM = MAX_PWM / 3;    // Make sure motor turns
+//const uint16_t ANALOG_WRITE_BITS = 8;
+//const uint16_t MAX_PWM = pow(2, ANALOG_WRITE_BITS);
+//const uint16_t MIN_PWM = MAX_PWM / 3;    // Make sure motor turns
 
 // Global variables for motor control with encoder feedback
 volatile int counter = 0;
@@ -29,7 +29,7 @@ void setup() {
   initMotors();
   pinMode(Input1, INPUT);
   pinMode(Input2, INPUT);
-  pinMode(motorSpeedPin, OUTPUT);
+  //pinMode(motorSpeedPin, OUTPUT);
 
   // Attach interrupts for encoder feedback motor
   attachInterrupt(digitalPinToInterrupt(Input1), ISR_A, CHANGE);
@@ -56,8 +56,8 @@ void setup() {
     }
 
     // Set motor speed based on control signal
-    int speed = map(abs(controlSignal), 0, (int)(3.3 * (2 * PI)), 0, 255);
-    analogWrite(PWMA, speed);
+    //int speed = map(abs(controlSignal), 0, (int)(3.3 * (2 * PI)), 0, 255);
+    //analogWrite(PWMA, speed);
 
     // Control the loop timing
     delay(10);
@@ -88,6 +88,7 @@ void ISR_B() {
   }
 }
 
+/*
 // Functions for TB6612FNG motor control (same as before)
 void forwardA(uint16_t pwm) {
   digitalWrite(AIN1, LOW);
@@ -113,11 +114,14 @@ void reverseA(uint16_t pwm) {
   analogWrite(PWMA, pwm);
 }
 
+*/
+
 void brakeA() {
   digitalWrite(AIN1, LOW);
   digitalWrite(AIN2, LOW);
 }
 
+/*
 void standbyMotors(bool standby) {
   if (standby == true) {
     digitalWrite(STBY, LOW);
@@ -125,12 +129,12 @@ void standbyMotors(bool standby) {
     digitalWrite(STBY, HIGH);
   }
 }
-
+*/
 void initMotors() {
   pinMode(AIN1, OUTPUT);
   pinMode(AIN2, OUTPUT);
-  pinMode(PWMA, OUTPUT);
-  pinMode(STBY, OUTPUT);
-  analogWriteResolution(ANALOG_WRITE_BITS);
-  standbyMotors(false);
+ //pinMode(PWMA, OUTPUT);
+ // pinMode(STBY, OUTPUT);
+ 
+  //standbyMotors(false);
 }
