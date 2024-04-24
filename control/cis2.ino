@@ -26,9 +26,11 @@ const float countsPerRevolution = 12; // Counts per motor revolution (based on e
 
 void setup() {
   // Initialize motors
-  initMotors();
+  pinMode(AIN1, OUTPUT);
+  pinMode(AIN2, OUTPUT);
   pinMode(Input1, INPUT);
   pinMode(Input2, INPUT);
+
   //pinMode(motorSpeedPin, OUTPUT);
 
   // Attach interrupts for encoder feedback motor
@@ -46,7 +48,7 @@ void setup() {
     float errorRadians = errorCounts * (2 * PI) / countsPerRevolution;
     float controlSignal = 3.3 * errorRadians;
 
-    // Motor direction control
+    // Motor direction control, will this control it or is another start/stop needed
     if (controlSignal > 0) {
       digitalWrite(AIN1, LOW);
       digitalWrite(AIN2, HIGH);
@@ -130,11 +132,4 @@ void standbyMotors(bool standby) {
   }
 }
 */
-void initMotors() {
-  pinMode(AIN1, OUTPUT);
-  pinMode(AIN2, OUTPUT);
- //pinMode(PWMA, OUTPUT);
- // pinMode(STBY, OUTPUT);
- 
-  //standbyMotors(false);
-}
+
