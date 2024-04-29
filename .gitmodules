@@ -1,0 +1,3 @@
+[submodule "artss-app"]
+	path = artss-app
+	url = https://github.com/renabi30/artss-app
