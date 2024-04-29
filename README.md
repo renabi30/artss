@@ -5,7 +5,9 @@ This repository contains the code and documentation for the ARTSS prototype, a p
 ## Overview
 
 `artss-app`: a submodule repository to the code for the user interface that works with our prototype
+
 `cad`: a directory of CAD files of the components of our prototype
+
 `control`: a directory of the Arduino code to directly control the motor of our prototype
 
 ## Authors
