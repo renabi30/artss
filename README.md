@@ -10,10 +10,12 @@ This repository contains the code and documentation for the ARTSS prototype, a p
 
 ## Authors
 
--[Nidhi Batra] -[Rena Bi] -[Lavinia Kong]
+- [Nidhi Batra]
+- [Rena Bi]
+- [Lavinia Kong]
 
 ## Mentors
 
--Dr. Vinciya Pandian
--Dr. Michael Brenner
--Dr. Axel Kreiger
+- Dr. Vinciya Pandian
+- Dr. Michael Brenner
+- Dr. Axel Kreiger
